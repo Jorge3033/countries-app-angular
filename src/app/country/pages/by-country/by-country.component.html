@@ -1,0 +1,24 @@
+<h2>Por pais</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <app-input-country (onSendTerm)="search($event)" (onDebounce)="sugerations($event)"></app-input-country>
+  </div>
+</div>
+
+<hr>
+
+<div
+  *ngIf="hasError; else elseHasError"
+  class="alert alert-danger">
+  No se encontro nada con el termino de busqueda {{ term }}
+</div>
+
+<ng-template #elseHasError>
+  <div class="col">
+    <app-country-table
+      [countries]="countries"
+      *ngIf="countries.length > 0"></app-country-table>
+  </div>
+</ng-template>

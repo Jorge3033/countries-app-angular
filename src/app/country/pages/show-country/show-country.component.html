@@ -1,0 +1,24 @@
+<h2>Ver pais</h2>
+<hr>
+
+<div
+  class="alert alert-info"
+  *ngIf="!countries; else elseCountry">
+  Cargando ...
+</div>
+
+<ng-template #elseCountry>
+  <div class="row">
+    <div class="col-12">
+      <div
+        class="container"
+        *ngFor="let country of countries">
+        Pais: {{ country.name.common }}
+        <pre class="mt-4">
+          {{ country | json }}
+        </pre>
+
+      </div>
+    </div>
+  </div>
+</ng-template>
