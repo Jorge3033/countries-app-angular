@@ -1,1 +1,24 @@
-<p>by-region works!</p>
+<h3> Por Region </h3>
+<small>{{ activeRegion | titlecase }}</small>
+<hr>
+
+<div class="row">
+  <div
+    class="col"
+    >
+    <button
+      *ngFor="let region of regions"
+      [class]="getActiveRegion(region)"
+      (click)="setActiveRegion(region)"
+    >
+      {{ region | titlecase  }}
+    </button>
+  </div>
+
+  <hr>
+
+  <app-country-table
+    [countries]="countries"
+  ></app-country-table>
+
+</div>

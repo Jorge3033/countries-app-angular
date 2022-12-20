@@ -7,6 +7,15 @@
   </div>
 </div>
 
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let country of countriesSugerations">
+    <a [routerLink]="['/show-country', country.cca2]"> {{ country.name.common }} </a>
+  </li>
+  <li>
+    <a class="list-group-item"(click)="search(term)">Buscar por {{ term }}</a>
+  </li>
+</ul>
+
 <hr>
 
 <div
